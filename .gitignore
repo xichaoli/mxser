@@ -1,0 +1,39 @@
+# Ignore build artifacts
+*.o
+*.ko
+*.mod.c
+*.cmd
+*.symvers
+*.order
+*.mod
+*.mod.o
+*.mod.cmd
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore output directories
+*.dwo
+*.d
+*.dtb
+*.dtbo
+*.dts
+*.dtsi
+
+# Ignore kernel build directories
+/Module.symvers
+/modules.order
+/.tmp_versions/
+/*.dwo
+/*.d
+
+# Ignore patch and backup files
+*.orig
+*.rej
+*~
+
+# Ignore build log files
+build.log
+driver/kernel4.x/build.log
