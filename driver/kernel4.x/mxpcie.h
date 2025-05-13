@@ -327,7 +327,7 @@
 
 #define MX_TTY_DRV(x)	tty->driver->x
 
-#ifdef VERIFY_WRITE
+#if (LINUX_VERSION_CODE < VERSION_CODE(5,0,0))
 #define MX_ACCESS_CHK(type, addr, size)		access_ok(type, addr, size)
 #else
 #define MX_ACCESS_CHK(type, addr, size)		access_ok(addr, size)

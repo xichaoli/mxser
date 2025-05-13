@@ -50,6 +50,7 @@
 #include <linux/bitops.h>
 #include <linux/slab.h>
 #include <linux/ratelimit.h>
+#include <linux/uaccess.h>
 
 #include <asm/io.h>
 #include <asm/irq.h>

@@ -57,6 +57,7 @@
 #include <linux/ioport.h>
 #include <linux/mm.h>
 #include <linux/delay.h>
+#include <linux/uaccess.h>
 
 #include <asm/io.h>
 #include <asm/irq.h>
@@ -1102,10 +1103,11 @@ static int mxupcie_write(struct tty_struct * tty,
 	while ( 1 ) {
 		c = MIN(count, MIN(SERIAL_XMIT_SIZE - info->xmit_cnt - 1,
 			       SERIAL_XMIT_SIZE - info->xmit_head));
-		if ( c <= 0 )
+		if ( c <= 0 ) {
 			break;
+		}
 
-			memcpy(info->xmit_buf + info->xmit_head, buf, c);
+		memcpy(info->xmit_buf + info->xmit_head, buf, c);
 		MX_LOCK(&info->slock);    
 		info->xmit_head = (info->xmit_head + c) & (SERIAL_XMIT_SIZE - 1);
 		info->xmit_cnt += c;
